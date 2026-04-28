@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Articles — RESET ATTENTION</title>
+  <meta name="description" content="Detailed articles by Reset Attention about digital overload, dopamine, exercise and focus recovery."/>
+  <style>
+
+    :root{
+      --bg:#030507;
+      --panel:#080b0d;
+      --panel2:#0c1013;
+      --line:rgba(255,255,255,.20);
+      --soft:rgba(255,255,255,.08);
+      --text:#ffffff;
+      --muted:#aeb5ba;
+      --lime:#c7ff00;
+      --lime2:#9ddb00;
+      --red:#ff3030;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 50% 8%, rgba(199,255,0,.11), transparent 20%),
+        radial-gradient(circle at 20% 25%, rgba(0,200,255,.06), transparent 22%),
+        linear-gradient(180deg,#030507 0%,#06090b 55%,#030507 100%);
+      color:var(--text);
+      font-family:"Arial Narrow",Arial,Helvetica,sans-serif;
+      line-height:1.48;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1120px,calc(100% - 48px));margin:0 auto}
+    .accent{color:var(--lime)}
+    .muted{color:var(--muted)}
+    .upper{text-transform:uppercase;letter-spacing:1.4px}
+
+    /* top nav */
+    header{
+      height:76px;
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(3,5,7,.84);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.13);
+    }
+    .nav{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:170px;
+      font-weight:900;
+      line-height:.92;
+      font-size:23px;
+      letter-spacing:.4px;
+    }
+    .brain{
+      width:42px;height:42px;
+      border:2px solid var(--lime);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      color:var(--lime);
+      font-size:24px;
+      box-shadow:0 0 28px rgba(199,255,0,.16);
+    }
+    .navlinks{
+      display:flex;
+      list-style:none;
+      padding:0;margin:0;
+      gap:30px;
+      align-items:center;
+    }
+    .navlinks a{
+      color:#fff;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      transition:.2s;
+    }
+    .navlinks a:hover,.navlinks a.active{color:var(--lime)}
+    .nav-btn,.btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:42px;
+      padding:0 24px;
+      border:1px solid var(--lime);
+      border-radius:9px;
+      color:#fff;
+      background:rgba(199,255,0,.025);
+      font-size:14px;
+      font-weight:900;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      transition:.24s;
+      white-space:nowrap;
+    }
+    .nav-btn:hover,.btn:hover{
+      color:#030507;
+      background:var(--lime);
+      transform:translateY(-2px);
+      box-shadow:0 0 26px rgba(199,255,0,.28);
+    }
+    .btn.secondary{border-color:rgba(255,255,255,.45)}
+    .btn.secondary:hover{border-color:var(--lime);background:var(--lime)}
+
+    /* hero */
+    .hero{
+      position:relative;
+      min-height:560px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg,rgba(3,5,7,.08),rgba(3,5,7,.25) 22%,rgba(3,5,7,.12) 50%,rgba(3,5,7,.25) 78%,rgba(3,5,7,.08)),
+        radial-gradient(circle at 50% 27%,rgba(199,255,0,.22),transparent 21%),
+        url("hero_concept.png") center top/cover no-repeat;
+      filter:contrast(1.05) brightness(.85);
+      transform:scale(1.02);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg,rgba(3,5,7,.08) 0%,rgba(3,5,7,.10) 48%,#030507 96%),
+        repeating-linear-gradient(180deg,rgba(255,255,255,.018) 0 1px,transparent 1px 8px);
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      min-height:560px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding-top:28px;
+    }
+    .halo{
+      position:absolute;
+      top:48px;
+      width:330px;height:330px;
+      border:3px solid rgba(199,255,0,.6);
+      border-bottom-color:transparent;
+      border-radius:50%;
+      filter:drop-shadow(0 0 18px rgba(199,255,0,.45));
+      animation:pulse 3.2s ease-in-out infinite;
+      opacity:.7;
+    }
+    @keyframes pulse{
+      0%,100%{transform:scale(1);opacity:.55}
+      50%{transform:scale(1.05);opacity:.9}
+    }
+    .hero h1{
+      position:relative;
+      margin:0;
+      font-size:clamp(74px,10vw,132px);
+      line-height:.86;
+      font-weight:1000;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      text-shadow:0 7px 0 rgba(0,0,0,.18),0 16px 48px rgba(0,0,0,.82);
+    }
+    .hero h1 span{display:block;color:var(--lime)}
+    .tag{
+      margin:26px 0 16px;
+      font-size:19px;
+      font-weight:900;
+      letter-spacing:7px;
+      text-transform:uppercase;
+    }
+    .hero-copy{
+      width:min(480px,92%);
+      margin:0 auto 28px;
+      color:#f3f6f4;
+      font-size:16px;
+    }
+    .hero-actions{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+    .btn .icon{font-size:20px;color:var(--lime)}
+    .btn:hover .icon{color:#030507}
+
+    /* facts */
+    .facts{
+      margin-top:-22px;
+      position:relative;
+      z-index:5;
+    }
+    .facts-box{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(7,10,12,.87);
+      backdrop-filter:blur(14px);
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      overflow:hidden;
+      box-shadow:0 22px 70px rgba(0,0,0,.4);
+    }
+    .fact{
+      padding:30px 28px;
+      text-align:center;
+      border-right:1px solid var(--line);
+      min-height:158px;
+    }
+    .fact:last-child{border-right:0}
+    .fact .ico{
+      color:var(--lime);
+      font-size:38px;
+      line-height:1;
+      margin-bottom:13px;
+      text-shadow:0 0 18px rgba(199,255,0,.25);
+    }
+    .fact h3{
+      color:var(--lime);
+      margin:0 0 11px;
+      font-size:15px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-weight:900;
+    }
+    .fact p{font-size:15px;margin:0;color:#f0f2f0}
+
+    /* common sections */
+    section{padding:30px 0}
+    .section-title-row{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:16px;
+    }
+    h2{
+      margin:0;
+      font-size:36px;
+      line-height:1;
+      font-weight:1000;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+    .intro{
+      margin:8px 0 0;
+      color:#d1d6d7;
+      font-size:15px;
+    }
+    .viewall{
+      color:var(--lime);
+      font-weight:900;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      transition:.2s;
+    }
+    .viewall:hover{letter-spacing:1.8px}
+
+    /* cards */
+    .articles-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .card{
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:10px;
+      background:linear-gradient(180deg,rgba(15,19,22,.94),rgba(6,8,10,.94));
+      overflow:hidden;
+      min-height:370px;
+      transition:.24s;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(199,255,0,.55);
+      box-shadow:0 16px 40px rgba(0,0,0,.35);
+    }
+    .card-img{
+      height:138px;
+      background:#111 center/cover no-repeat;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      filter:saturate(.88) contrast(1.06);
+    }
+    .card-body{padding:18px 17px 20px}
+    .label{
+      display:block;
+      color:var(--lime);
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.9px;
+      margin-bottom:13px;
+    }
+    .card h3{
+      margin:0 0 12px;
+      font-size:25px;
+      line-height:1.06;
+      font-weight:900;
+    }
+    .card p{
+      color:#cbd1d3;
+      margin:0 0 17px;
+      font-size:15px;
+    }
+    .read{
+      color:var(--lime);
+      font-weight:900;
+      font-size:15px;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+    }
+
+    /* panels */
+    .lower-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:24px;
+    }
+    .panel{
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:12px;
+      background:rgba(8,11,13,.84);
+      padding:22px;
+      min-height:365px;
+    }
+    .panel-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:18px;
+      margin-bottom:16px;
+    }
+    .panel h2{font-size:34px}
+    .panel p.small{
+      color:#cfd5d6;
+      margin:6px 0 0;
+      font-size:14px;
+    }
+    .media-row{
+      display:grid;
+      grid-template-columns:245px 1fr;
+      gap:20px;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:10px;
+      padding:13px;
+      background:rgba(255,255,255,.025);
+      margin-bottom:13px;
+      align-items:center;
+      transition:.2s;
+    }
+    .media-row:hover{border-color:rgba(199,255,0,.45)}
+    .thumb{
+      height:112px;
+      border-radius:6px;
+      background:#0e1113 center/cover no-repeat;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .thumb::after{
+      content:"▶";
+      position:absolute;
+      inset:0;
+      margin:auto;
+      width:45px;height:45px;
+      display:grid;
+      place-items:center;
+      border:1px solid #fff;
+      border-radius:50%;
+      background:rgba(0,0,0,.38);
+      color:#fff;
+      font-size:18px;
+    }
+    .audio .thumb::after{content:"🎧";border-color:var(--lime);color:var(--lime)}
+    .media-row h3{
+      margin:7px 0 6px;
+      font-size:24px;
+      line-height:1.05;
+    }
+    .mini-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      color:var(--lime);
+      border:1px solid rgba(199,255,0,.65);
+      border-radius:5px;
+      padding:4px 9px;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      transition:.2s;
+    }
+    .mini-btn:hover{background:var(--lime);color:#030507}
+
+    .poll-card{
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:10px;
+      padding:19px;
+      background:rgba(255,255,255,.025);
+    }
+    .poll-q{
+      color:var(--lime);
+      font-size:19px;
+      font-weight:900;
+      margin:0 0 18px;
+    }
+    .bar{margin:12px 0}
+    .bar-top{
+      display:flex;justify-content:space-between;
+      color:#c9cfd0;
+      font-size:14px;
+      margin-bottom:5px;
+    }
+    .line{
+      height:8px;
+      border-radius:20px;
+      background:rgba(255,255,255,.14);
+      overflow:hidden;
+    }
+    .fill{
+      height:100%;
+      background:linear-gradient(90deg,var(--lime),var(--lime2));
+      border-radius:20px;
+      box-shadow:0 0 12px rgba(199,255,0,.22);
+    }
+    .poll-bottom{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-top:21px;
+      color:var(--lime);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      font-size:14px;
+    }
+
+    /* full sections */
+    .full-section{
+      padding-top:46px;
+    }
+    .text-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+    .text-card{
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:12px;
+      padding:28px;
+      background:rgba(8,11,13,.84);
+      min-height:260px;
+    }
+    .text-card h3{
+      font-size:30px;
+      line-height:1.05;
+      margin:0 0 14px;
+    }
+    .text-card p,.text-card li{color:#cbd1d3}
+    .text-card ul{padding-left:18px}
+
+    .team-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .person{
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:12px;
+      padding:24px;
+      background:rgba(8,11,13,.84);
+      transition:.2s;
+    }
+    .person:hover{border-color:rgba(199,255,0,.5);transform:translateY(-4px)}
+    .avatar{
+      width:58px;height:58px;
+      border:1px solid var(--lime);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      color:var(--lime);
+      font-weight:900;
+      font-size:22px;
+      margin-bottom:16px;
+    }
+    .person h3{margin:0 0 7px;font-size:21px;line-height:1.1}
+    .role{color:var(--lime);font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:900}
+
+    .footer-strip{
+      margin-top:20px;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:10px;
+      padding:16px 36px;
+      display:grid;
+      grid-template-columns:60px 1fr 1fr 150px;
+      align-items:center;
+      gap:24px;
+      background:rgba(8,11,13,.84);
+    }
+    .footer-strip .bell{font-size:28px;color:var(--lime)}
+    .footer-strip .protect,.footer-strip .reality{
+      text-transform:uppercase;
+      font-weight:900;
+      letter-spacing:8px;
+      font-size:18px;
+    }
+    .footer-strip .reality{color:var(--lime)}
+    .socials{
+      display:flex;justify-content:flex-end;gap:24px;color:#fff;font-size:24px;
+    }
+    footer{
+      padding:18px 0 35px;
+      color:#92999d;
+      font-size:13px;
+    }
+    .foot-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .foot-row .accent{font-size:15px}
+
+    /* animation */
+    .reveal{opacity:0;transform:translateY(18px);transition:.65s ease}
+    .reveal.on{opacity:1;transform:translateY(0)}
+
+    @media(max-width:1050px){
+      .navlinks{gap:18px}
+      .facts-box{grid-template-columns:repeat(2,1fr)}
+      .fact{border-bottom:1px solid var(--line)}
+      .fact:nth-child(even){border-right:0}
+      .articles-grid,.team-grid{grid-template-columns:repeat(2,1fr)}
+      .lower-grid,.text-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:760px){
+      header{height:auto}
+      .nav{height:auto;padding:14px 0;flex-wrap:wrap}
+      .navlinks{order:3;width:100%;overflow-x:auto;padding-bottom:4px}
+      .navlinks a{font-size:12px}
+      .hero,.hero-inner{min-height:610px}
+      .facts{margin-top:0}
+      .facts-box,.articles-grid,.team-grid{grid-template-columns:1fr}
+      .fact{border-right:0}
+      .media-row{grid-template-columns:1fr}
+      .footer-strip{grid-template-columns:1fr;text-align:center}
+      .socials{justify-content:center}
+      .hero h1{font-size:72px}
+      .tag{font-size:14px;letter-spacing:4px}
+    }
+  
+    .article-hero {
+      padding: 90px 0 45px;
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(180deg,rgba(3,5,7,.20),#030507 88%),
+        url("hero_concept.png") center/cover no-repeat;
+      position: relative;
+    }
+    .article-hero::after {
+      content:""; position:absolute; inset:0;
+      background:rgba(3,5,7,.58);
+      pointer-events:none;
+    }
+    .article-hero .wrap {position:relative; z-index:2}
+    .article-hero h1 {
+      margin:0;
+      font-size:clamp(52px,8vw,108px);
+      line-height:.9;
+      letter-spacing:3px;
+      text-transform:uppercase;
+    }
+    .article-page-grid {
+      display:grid;
+      grid-template-columns: 260px 1fr;
+      gap:26px;
+      align-items:start;
+      padding:36px 0 80px;
+    }
+    .article-sidebar {
+      position:sticky;
+      top:96px;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:14px;
+      padding:20px;
+      background:rgba(8,11,13,.86);
+    }
+    .article-sidebar a {
+      display:block;
+      padding:11px 0;
+      color:#dce2e4;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      font-weight:900;
+      text-transform:uppercase;
+      font-size:12px;
+      letter-spacing:.8px;
+    }
+    .article-sidebar a:hover {color:var(--lime)}
+    .long-article {
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:16px;
+      background:rgba(8,11,13,.86);
+      padding:38px;
+      margin-bottom:26px;
+    }
+    .long-article img {
+      width:100%;
+      max-height:330px;
+      object-fit:cover;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.16);
+      margin:18px 0 26px;
+    }
+    .long-article h2 {
+      font-size:clamp(36px,5vw,64px);
+      margin-bottom:14px;
+    }
+    .long-article h3 {
+      font-size:27px;
+      margin:30px 0 10px;
+      color:var(--lime);
+      text-transform:uppercase;
+      letter-spacing:.7px;
+    }
+    .long-article p, .long-article li {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:18px;
+      color:#d8dee0;
+    }
+    .quote {
+      border-left:4px solid var(--lime);
+      padding:18px 22px;
+      background:rgba(199,255,0,.05);
+      margin:26px 0;
+      font-size:22px;
+      font-weight:900;
+      color:#fff;
+    }
+    @media(max-width:900px){
+      .article-page-grid{grid-template-columns:1fr}
+      .article-sidebar{position:relative;top:0}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a href="index.html#home" class="brand">
+        <div class="brain">◌</div>
+        <span>RESET<br>ATTENTION</span>
+      </a>
+      <ul class="navlinks">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a class="active" href="articles.html">Articles</a></li>
+        <li><a href="index.html#watch">Watch & Listen</a></li>
+        <li><a href="index.html#community">Community</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="index.html#social">Contact</a></li>
+      </ul>
+      <a class="nav-btn" href="https://t.me/resetattention" target="_blank" rel="noopener">Join Telegram ✈</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="article-hero">
+      <div class="wrap">
+        <span class="label">Editorial Stories</span>
+        <h1>Articles</h1>
+        <p class="intro" style="max-width:650px">Four detailed articles about attention, dopamine, exercise and focus recovery — the core themes of Reset Attention.</p>
+      </div>
+    </section>
+
+    <div class="wrap article-page-grid">
+      <aside class="article-sidebar">
+        <a href="#article1">Why Attention Is Disappearing</a>
+        <a href="#article2">Dopamine & Endless Scroll</a>
+        <a href="#article3">Exercise & Focus</a>
+        <a href="#article4">How to Take Focus Back</a>
+        <a href="index.html">← Back to Home</a>
+      </aside>
+
+      <div>
+        <article class="long-article reveal" id="article1">
+          <span class="label">Attention Crisis</span>
+          <h2>Why Your Attention Is Disappearing</h2>
+          <img src="attention_disappearing.jpg" alt="Digital overload and disappearing attention">
+          <p>Your attention is not gone — it is being hijacked. Every notification, scroll and recommendation is designed to pull you away from what matters. In the attention economy, focus becomes a product, and platforms compete for every second of your time.</p>
+          <p>Modern platforms are built around speed, novelty and instant feedback. A like, a message, a breaking news alert or a new short video can interrupt concentration before a thought becomes deep. The problem is not only that we spend time online. The deeper issue is that we are constantly trained to switch.</p>
+          <div class="quote">Attention is not just a skill. It is the place where your life happens.</div>
+          <h3>Why it matters</h3>
+          <p>When attention becomes fragmented, studying becomes harder, reading feels slower and meaningful work starts to feel uncomfortable. This is why digital overload is not only a personal problem — it is a social and educational challenge.</p>
+          <h3>What helps</h3>
+          <ul>
+            <li>Turn off non-essential notifications.</li>
+            <li>Create phone-free study blocks.</li>
+            <li>Keep your phone away during reading and deep work.</li>
+            <li>Protect moments of boredom — they help the mind recover.</li>
+          </ul>
+        </article>
+
+        <article class="long-article reveal" id="article2">
+          <span class="label">Dopamine</span>
+          <h2>Dopamine and the Endless Scroll</h2>
+          <img src="hero_concept.png" alt="Dopamine and digital overload">
+          <p>Social media gives the brain quick rewards: likes, messages, short videos and novelty. These rewards can create dopamine spikes that make scrolling feel exciting — but they can also make deep focus feel boring.</p>
+          <p>Dopamine is not simply “pleasure.” It is strongly connected with motivation, anticipation and reward-seeking. When the brain expects quick stimulation every few seconds, slower tasks such as reading, writing or studying can feel less attractive.</p>
+          <div class="quote">The goal is not to eliminate dopamine. The goal is to stop letting random apps control it.</div>
+          <h3>The problem with constant stimulation</h3>
+          <p>Endless feeds are powerful because they are unpredictable. You never know what the next post will be. This unpredictability keeps the brain searching for the next reward, even when the experience is no longer satisfying.</p>
+          <h3>How to reset stimulation</h3>
+          <ul>
+            <li>Do not start the day with social media.</li>
+            <li>Avoid “dopamine stacking”: scrolling, music, snacks and multitasking at the same time.</li>
+            <li>Use low-stimulation breaks: walking, silence, stretching or journaling.</li>
+            <li>Train motivation through effort, not only instant reward.</li>
+          </ul>
+        </article>
+
+        <article class="long-article reveal" id="article3">
+          <span class="label">Health & Motivation</span>
+          <h2>Move Your Body. Sharpen Your Mind.</h2>
+          <img src="exercise.jpg" alt="Exercise improves focus and motivation">
+          <p>Exercise is not only fitness. Movement supports mood, motivation and attention. A walk, short workout or stretching break can reduce mental fatigue and make it easier to return to deep focus.</p>
+          <p>Physical activity helps the brain shift from passive consumption to active energy. It improves blood flow, reduces stress and gives the mind a natural reset. In the context of digital overload, movement becomes a tool for attention recovery.</p>
+          <div class="quote">Movement is one of the simplest ways to interrupt the scroll cycle.</div>
+          <h3>Why it helps focus</h3>
+          <p>After exercise, many people feel more awake, more motivated and less mentally foggy. Even a short session can help break the loop of scrolling, fatigue and procrastination.</p>
+          <h3>Simple movement protocol</h3>
+          <ul>
+            <li>Walk for 10–20 minutes before a study session.</li>
+            <li>Use short workouts instead of long scrolling breaks.</li>
+            <li>Stretch when your brain feels stuck.</li>
+            <li>Choose consistency over intensity.</li>
+          </ul>
+        </article>
+
+        <article class="long-article reveal" id="article4">
+          <span class="label">Focus Recovery</span>
+          <h2>How to Take Your Focus Back</h2>
+          <img src="poll.jpg" alt="Attention span poll visual">
+          <p>Reclaiming attention does not mean rejecting technology. It means designing better boundaries. Focus grows when you reduce interruptions and practice single-tasking.</p>
+          <p>The modern internet makes distraction easy by default. That means focus has to be designed intentionally. The question is not “How do I become perfectly disciplined?” The better question is: “How do I make distraction less automatic?”</p>
+          <div class="quote">You do not need a perfect digital detox. You need better defaults.</div>
+          <h3>The RESET method</h3>
+          <ul>
+            <li><strong>R — Remove</strong> unnecessary notifications.</li>
+            <li><strong>E — Enter</strong> deep work blocks.</li>
+            <li><strong>S — Schedule</strong> phone-free time.</li>
+            <li><strong>E — Embrace</strong> boredom and silence.</li>
+            <li><strong>T — Train</strong> attention through reading, movement and single-tasking.</li>
+          </ul>
+          <p>Attention is trainable. What you repeat every day shapes what your brain learns to expect. Less scrolling means more space for thought, creativity and real life.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap foot-row">
+      <span>© 2026 Reset Attention. Student digital media project.</span>
+      <span class="accent">Less scrolling. More living.</span>
+    </div>
+  </footer>
+
+  <script>
+    const reveal = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); } });
+    },{threshold:.08});
+    reveal.forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>
